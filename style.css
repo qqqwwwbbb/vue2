@@ -3,7 +3,7 @@
     font-family: "Sacramento", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(9, 3, 3);
+    background-color: rgba(0, 0, 0, 0.95);
 }
 .body{
     margin: 0;
@@ -26,15 +26,15 @@ p{
 
 #cols {
     display: flex;
-    width: 1200px;
+    width: 1700px;
 }
 
 .col {
-    margin-left: 100px;
-    width: 30%;
-    height: 800px;
+    margin-left: 90px;
+    width: 900px;
+    height: 805px;
     text-align: center;
-    font-size: 6.2rem;
+    font-size: 30px;
     animation: pulsate 1.5s infinite alternate;
     border: 0.3rem solid #fff;
     border-radius: 1rem;
@@ -63,9 +63,21 @@ p{
     text-wrap: normal;
 }
 .addform{
+    color: azure;
     margin-left: 50px;
     margin-right: 50px;
     height: 200px;
     width: 300px;
     font-size: 28px;
 }
+input[type="text"], textarea {
+    height: 25px;
+    width: 250px;
+    color: #ff5d9b;
+    background: #ac1eff linear-gradient(22deg, rgba(115, 0, 255, 0.79), rgba(154, 30, 255, 0.74), rgba(196, 20, 255, 0.85)) fixed;
+    font: normal 25px/1.6 system-ui, sans-serif;
+    text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.75);
+    margin: 3rem;
+
+}
+

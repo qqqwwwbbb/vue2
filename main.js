@@ -136,19 +136,19 @@ Vue.component('newcard', {
         </p>
         <br>
         <div>
-            <input required id="subtask1" v-model="subtask1" maxlength="50" placeholder="subtask">
+            <input required id="subtask1" v-model="subtask1" maxlength="50" type="text" placeholder="subtask">
         </div>
         <div>
-            <input required id="subtask2" v-model="subtask2" maxlength="50" placeholder="subtask">
+            <input required id="subtask2" v-model="subtask2" maxlength="50" type="text" placeholder="subtask">
         </div>
         <div>
-            <input required id="subtask3" v-model="subtask3" maxlength="50" placeholder="subtask">
+            <input required id="subtask3" v-model="subtask3" maxlength="50" type="text" placeholder="subtask">
         </div>
         <div>
-            <input  id="subtask4" v-model="subtask4" maxlength="50" placeholder="subtask">
+            <input  id="subtask4" v-model="subtask4" maxlength="50" type="text" placeholder="subtask">
         </div>
         <div>
-            <input  id="subtask5" v-model="subtask5" maxlength="50" placeholder="subtask">
+            <input  id="subtask5" v-model="subtask5" maxlength="50" type="text" placeholder="subtask">
         </div>
         <button type="submit">Add a card</button>
     </form>
