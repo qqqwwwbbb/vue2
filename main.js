@@ -191,7 +191,7 @@ Vue.component('newcard', {
 let app = new Vue({
     el: '#app',
     data: {
-        name: 'Practice'
+        name: 'Practicee'
     },
     methods: {
 
