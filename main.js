@@ -120,12 +120,51 @@ Vue.component('cols', {
 
                 this.column1.push(card)
             } else {
-                this.errors.push("Больше добавлять нельзя.")
+                this.errors.push("You shall not pass !")
             }
         })
     },
 })
 
+Vue.component('newcard', {
+    template: `
+    <form class="addform" @submit.prevent="onSubmit">
+        <p>
+            <label for="title"> ↓ Fill the data</label>
+            <br>
+            <input class="title" required v-model="title" maxlength="50" type="text" placeholder="title">
+        </p>
+        <br>
+        <div>
+            <input required id="subtask1" v-model="subtask1" maxlength="50" placeholder="subtask">
+        </div>
+        <div>
+            <input required id="subtask2" v-model="subtask2" maxlength="50" placeholder="subtask">
+        </div>
+        <div>
+            <input required id="subtask3" v-model="subtask3" maxlength="50" placeholder="subtask">
+        </div>
+        <div>
+            <input  id="subtask4" v-model="subtask4" maxlength="50" placeholder="subtask">
+        </div>
+        <div>
+            <input  id="subtask5" v-model="subtask5" maxlength="50" placeholder="subtask">
+        </div>
+        <button type="submit">Add a card</button>
+    </form>
+    `,
+    data() {
+        return {
+            title: null,
+            subtask1: null,
+            subtask2: null,
+            subtask3: null,
+            subtask4: null,
+            subtask5: null,
+            errors: [],
+        }
+    }
+})
 
 let app = new Vue({
     el: '#app',

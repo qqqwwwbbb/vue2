@@ -26,18 +26,19 @@ p{
 
 #cols {
     display: flex;
-    width: 900px;
+    width: 1200px;
 }
 
 .col {
+    margin-left: 100px;
     width: 30%;
-    height: 799px;
+    height: 800px;
     text-align: center;
     font-size: 6.2rem;
     animation: pulsate 1.5s infinite alternate;
-    border: 0.2rem solid #fff;
-    border-radius: 0.5rem;
-    padding: 1em;
+    border: 0.3rem solid #fff;
+    border-radius: 1rem;
+    padding: 1.3em;
     box-shadow: 0 0 .2rem #fff,
     0 0 .2rem #fff,
     0 0 2rem #bc13fe,
@@ -51,4 +52,20 @@ h1, h2 {
     text-align: left;
     font-weight: 400;
     font-size: 25px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+p{
+    margin: 5px;
+    text-wrap: normal;
+}
+.addform{
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 200px;
+    width: 300px;
+    font-size: 28px;
 }
