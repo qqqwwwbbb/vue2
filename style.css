@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.95);
+
 }
 .body{
     margin: 0;
@@ -53,6 +54,30 @@ h1, h2 {
     font-weight: 400;
     font-size: 25px;
 }
+.tasks{
+    display: flex;
+    list-style-type: none;
+    margin: 0px;
+    align-items: center;
+}
+
+.completed{
+    text-decoration: line-through;
+}
+.error{
+    position: fixed;
+    top: 400px;
+    color: red;
+}
+
+.cards{
+
+    list-style-type: none;
+    width: 95%;
+    background-color: #8e9ce8;
+    padding: 2px;
+    margin-bottom: 10px;
+}
 
 ul {
     padding-left: 20px;
@@ -71,13 +96,57 @@ p{
     font-size: 28px;
 }
 input[type="text"], textarea {
-    height: 25px;
+    height: 30px;
     width: 250px;
-    color: #ff5d9b;
-    background: #ac1eff linear-gradient(22deg, rgba(115, 0, 255, 0.79), rgba(154, 30, 255, 0.74), rgba(196, 20, 255, 0.85)) fixed;
+    background-color: rgba(163, 76, 234, 0.58);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.93);
+    display: inline-block;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
     font: normal 25px/1.6 system-ui, sans-serif;
-    text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.75);
-    margin: 3rem;
+    text-shadow: 0 2px 1px hsl(237, 100%, 58%);
+    margin: 2rem;
 
 }
+.zxc {
+
+                                                     background-color: #EA4C89;
+                                                     border-radius: 8px;
+                                                     border-style: none;
+                                                     box-sizing: border-box;
+                                                     color: #ffffff;
+                                                     cursor: pointer;
+                                                     display: inline-block;
+                                                     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                                     font-size: 14px;
+                                                     font-weight: 500;
+                                                     height: 40px;
+                                                     line-height: 20px;
+                                                     list-style: none;
+                                                     outline: none;
+                                                     padding: 10px 16px;
+                                                     position: relative;
+                                                     text-align: center;
+                                                     text-decoration: none;
+                                                     transition: color 100ms;
+                                                     vertical-align: baseline;
+                                                     user-select: none;
+                                                     -webkit-user-select: none;
+                                                     touch-action: manipulation;
+    margin-left: 30px;
+
+    align-items: center;
+    background-color: #6f01c9;
+}
+
 

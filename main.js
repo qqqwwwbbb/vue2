@@ -1,44 +1,41 @@
 let eventBus = new Vue()
 
 Vue.component('cols', {
-    template: `
+    template:`
     <div id="cols">
         <p class="error" v-for="error in errors">{{error}}</p>
         <newcard></newcard>
         <div class="col">
             <ul>
-                <li class="cards" v-for="card in column1"><p>{{ card.title }}</p><p>{{ card.status }}</p>
+                <li class="cards" v-for="card in column1"><p>{{ card.title }}</p>
                     <ul>
                         <li class="tasks" v-for="t in card.subtasks" v-if="t.title != null">
-                            <input @click="t.completed = true"
+                            <input @click="newStatus(card, t)"
                             class="checkbox" type="checkbox"
                             :disabled="t.completed">
                             <p :class="{completed: t.completed}">{{t.title}}</p>
                         </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    <div class="col">
-            <ul>
-                <li class="cards" v-for="card in column2"><p>{{ card.title }}</p><p>{{ card.status }}</p><p>{{ card.date }}</p>
-                    <ul>
-                        <li class="tasks" v-for="t in card.subtasks" v-if="t.title != null">
-                            <input @click="t.completed = true" 
-                            @click="newStatus"
-                            class="checkbox" type="checkbox"
-                            :disabled="t.completed">
-                            <p :class="{completed: t.completed}">{{t.title}}</p>
-                            
-                        </li>
-                        
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="col">
             <ul>
-                <li class="cards" v-for="card in column3"><p>{{ card.title }}</p><p>{{ card.status }}</p><p>{{ card.date }}</p>
+                <li class="cards" v-for="card in column2"><p>{{ card.title }}</p>
+                    <ul>
+                        <li class="tasks" v-for="t in card.subtasks" v-if="t.title != null">
+                            <input @click="t.completed = true" 
+                            class="checkbox" type="checkbox"
+                            :disabled="t.completed">
+                            <p :class="{completed: t.completed}">{{t.title}}</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li class="cards" v-for="card in column3"><p>{{ card.title }}</p><p>{{ card.date }}</p>
                     <ul>
                         <li class="tasks" v-for="t in card.subtasks" v-if="t.title != null">
                             <input @click="t.completed = true" 
@@ -54,7 +51,7 @@ Vue.component('cols', {
             </ul>
         </div>
     </div>
- `,
+`,
     data() {
         return {
             column1: [],
@@ -88,6 +85,17 @@ Vue.component('cols', {
 
         }
     },
+    mounted() {
+        eventBus.$on('card-submitted', card => {
+            this.errors = []
+            if (this.column1.length < 3){
+
+                this.column1.push(card)
+            } else {
+                this.errors.push("You can't add a new card now.")
+            }
+        })
+    },
     props: {
         card: {
             title: {
@@ -113,18 +121,11 @@ Vue.component('cols', {
         },
 
     },
-    mounted() {
-        eventBus.$on('card-submitted', card => {
-            this.errors = []
-            if (this.column1.length < 3){
+    computed: {
 
-                this.column1.push(card)
-            } else {
-                this.errors.push("You shall not pass !")
-            }
-        })
-    },
+    }
 })
+
 
 Vue.component('newcard', {
     template: `
@@ -132,25 +133,25 @@ Vue.component('newcard', {
         <p>
             <label for="title"> ↓ Fill the data</label>
             <br>
-            <input class="title" required v-model="title" maxlength="50" type="text" placeholder="title">
+            <input class="title" required v-model="title" maxlength="50" type="text" placeholder="name">
         </p>
         <br>
         <div>
-            <input required id="subtask1" v-model="subtask1" maxlength="50" type="text" placeholder="subtask">
+            <input required id="subtask1" v-model="subtask1" maxlength="50" type="text" placeholder="description">
         </div>
         <div>
-            <input required id="subtask2" v-model="subtask2" maxlength="50" type="text" placeholder="subtask">
+            <input required id="subtask2" v-model="subtask2" maxlength="50" type="text" placeholder="description">
         </div>
         <div>
-            <input required id="subtask3" v-model="subtask3" maxlength="50" type="text" placeholder="subtask">
+            <input required id="subtask3" v-model="subtask3" maxlength="50" type="text" placeholder="description">
         </div>
         <div>
-            <input  id="subtask4" v-model="subtask4" maxlength="50" type="text" placeholder="subtask">
+            <input  id="subtask4" v-model="subtask4" maxlength="50" type="text" placeholder="description">
         </div>
         <div>
-            <input  id="subtask5" v-model="subtask5" maxlength="50" type="text" placeholder="subtask">
+            <input  id="subtask5" v-model="subtask5" maxlength="50" type="text" placeholder="description">
         </div>
-        <button type="submit">Add a card</button>
+        <button class="zxc" type="submit">Add a card</button>
     </form>
     `,
     data() {
@@ -162,6 +163,27 @@ Vue.component('newcard', {
             subtask4: null,
             subtask5: null,
             errors: [],
+        }
+    },
+    methods: {
+        onSubmit() {
+            let card = {
+                title: this.title,
+                subtasks: [{title: this.subtask1, completed: false},
+                    {title: this.subtask2, completed: false},
+                    {title: this.subtask3, completed: false},
+                    {title: this.subtask4, completed: false},
+                    {title: this.subtask5, completed: false}],
+                date: null,
+                status: 0
+            }
+            eventBus.$emit('card-submitted', card)
+            this.title = null
+            this.subtask1 = null
+            this.subtask2 = null
+            this.subtask3 = null
+            this.subtask4 = null
+            this.subtask5 = null
         }
     }
 })
