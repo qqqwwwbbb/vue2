@@ -1,23 +1,54 @@
-#app{
+*{
     text-align: left;
+    font-family: "Sacramento", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(9, 3, 3);
 }
-
-h1 {
-    text-align: left;
+.body{
+    margin: 0;
 }
 
 p{
-    margin: 5px;
-    text-wrap: normal;
+    position: relative;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow: 0 0 0.15em #830eff;
+    user-select: none;
+    white-space: nowrap;
+    filter: blur(0.007em);
+    animation: shake 2.5s linear forwards;
 }
 
 #cols {
     display: flex;
+    width: 900px;
 }
 
 .col {
-    width: 33.33%;
-    height: 850px;
+    width: 30%;
+    height: 799px;
     text-align: center;
-    border: 2px solid gray;
+    font-size: 6.2rem;
+    animation: pulsate 1.5s infinite alternate;
+    border: 0.2rem solid #fff;
+    border-radius: 0.5rem;
+    padding: 1em;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe,
+    0 0 2.8rem #bc13fe,
+    inset 0 0 1.3rem #bc13fe;
+}
+
+h1, h2 {
+    color: azure;
+    text-align: left;
+    font-weight: 400;
+    font-size: 25px;
 }
