@@ -285,9 +285,18 @@ Vue.component('newcard', {
 let app = new Vue({
     el: '#app',
     data: {
-        name: 'Practicee'
+        type: 'all',
+        list: JSON.parse(localStorage.getItem('card')) || [],
+        errors:[],
+        todo_new: null,
+        description: null
     },
-    methods: {
-
-    }
-})
+        watch: {
+            list: {
+                handler: function(list) {
+                    localStorage.setItem('card', JSON.stringify(list));
+                },
+                deep: true
+            }
+        }
+})(window);
