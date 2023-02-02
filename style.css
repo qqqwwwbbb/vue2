@@ -70,12 +70,13 @@ h1, h2 {
     color: red;
 }
 
-.cards{
+.card{
 
     list-style-type: none;
     width: 95%;
     background-color: #8e9ce8;
     padding: 2px;
+    color: white;
     margin-bottom: 10px;
 }
 
